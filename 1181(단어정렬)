@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+bool cmp(string a, string b){
+    if(a.size() == b.size()){
+        return a < b;
+    }
+    return a.size() < b.size();
+
+}
+int main()
+{
+    int i, n;
+    vector <string> v;
+    string t;
+    cin >> n;
+    for(i=0; i<n; i++){
+        cin >> t;
+        v.push_back(t);
+    }
+    sort(v.begin(), v.end(), cmp);
+    v.push_back("NO");
+    for(i=0; i<v.size()-1; i++){
+        if(v[i]!=v[i+1]){
+            cout << v[i] << "\n";
+        }
+
+    }
+}
